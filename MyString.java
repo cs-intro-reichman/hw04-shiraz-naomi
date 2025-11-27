@@ -18,9 +18,9 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
+        if (str == null)
+            return "";
         String str1 = "";
-        if (str == null) // Add this
-            return null;
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             ch = (ch >= 'A' && ch <= 'Z' ? (char) (ch - 'A' + 'a') : ch);
@@ -35,6 +35,8 @@ public class MyString {
             return false;
         if (str2.length() == 0)
             return true;
+        if (str1.length() == 0)
+            return false;
 
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
