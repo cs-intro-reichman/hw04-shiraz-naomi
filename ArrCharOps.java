@@ -7,23 +7,23 @@ public class ArrCharOps {
         String str = "clearly";
         char[] arr1 = { 'c', 'l', 'e', 'a', 'r', 'l', 'y' };
         char[] arr2 = { 'U', 'n', 'd', 'e', 'r', 's', 't', 'o', 'o', 'd' };
-        // System.out.println(str); // Prints the string
-        // println(arr1); // Prints an array of characters
-        // System.out.println(charAt(arr1, 2));
-        // System.out.println(indexOf(arr1, 'l'));
-        // System.out.println(indexOf(arr1, 'l', 3));
-        // System.out.println(lastIndexOf(arr1, 'l'));
-        // System.out.println(concat(arr1, arr2));
-        // System.out.println(subArray(arr2, 2, 9));
-        // System.out.println(compareTo("abcd", "abcd"));
-        // System.out.println(compareTo("abc", "abcd"));
-        // System.out.println(compareTo("abw", "abcd"));
-        // System.out.println(compareTo("Abcd", "a"));
-        // System.out.println(compareTo("apple", "banana"));
-        // System.out.println(compareTo("apple", "applepie"));
+        System.out.println(str); // Prints the string
+        println(arr1); // Prints an array of characters
+        System.out.println(charAt(arr1, 2));
+        System.out.println(indexOf(arr1, 'l'));
+        System.out.println(indexOf(arr1, 'l', 3));
+        System.out.println(lastIndexOf(arr1, 'l'));
+        System.out.println(concat(arr1, arr2));
+        System.out.println(subArray(arr2, 2, 9));
+        System.out.println(compareTo("abcd", "abcd"));
+        System.out.println(compareTo("abc", "abcd"));
+        System.out.println(compareTo("abw", "abcd"));
+        System.out.println(compareTo("Abcd", "a"));
+        System.out.println(compareTo("apple", "banana"));
+        System.out.println(compareTo("apple", "applepie"));
         System.out.println(compareTo("Zoo", "zoo"));
-        // System.out.println(hashCode(arr1));
-        // System.out.println(hashCode(arr2));
+        System.out.println(hashCode(arr1));
+        System.out.println(hashCode(arr2));
 
     }
 
@@ -127,8 +127,8 @@ public class ArrCharOps {
      */
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] arr2 = new char[endIndex - beginIndex];
-        for (int i = beginIndex; i < endIndex - beginIndex; i++) {
-            arr2[i] = arr[i];
+        for (int i = beginIndex; i < endIndex; i++) {
+            arr2[i - beginIndex] = arr[i];
         }
         return arr2;
     }
@@ -148,7 +148,7 @@ public class ArrCharOps {
     public static long hashCode(char[] arr) {
         long hash = 0;
         for (int i = 0; i < arr.length; i++) {
-            hash += arr[i] * 7 ^ (arr.length - 1);
+            hash = 7 * hash + arr[i];
         }
         return hash;
     }
@@ -183,6 +183,8 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2 == null)
+            return -2;
         int len = Math.min(str1.length(), str2.length());
 
         for (int i = 0; i < len; i++) {
@@ -191,10 +193,10 @@ public class ArrCharOps {
             if (c1 < c2)
                 return -1;
             if (c2 < c1)
-                return -2;
+                return 1;
         }
         if (str1.length() > str2.length())
-            return -2;
+            return 1;
         if (str2.length() > str1.length())
             return -1;
         return 0;
