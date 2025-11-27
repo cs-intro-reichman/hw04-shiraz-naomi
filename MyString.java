@@ -34,7 +34,7 @@ public class MyString {
         if (str1 == null || str2 == null)
             return false;
         if (str2.length() == 0)
-            return false;
+            return true;
         if (str1.length() < str2.length())
             return false;
 
