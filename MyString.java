@@ -33,12 +33,10 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         if (str1 == null || str2 == null)
             return false;
-        if (str2.length() == 0)
-            return true;
         if (str1.length() < str2.length())
             return false;
-        if (str1.length() == 0)
-            return false;
+        if (str2.isEmpty()) // Use isEmpty() instead of length() == 0
+            return true;
 
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
