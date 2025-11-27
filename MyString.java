@@ -29,19 +29,18 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        if (str2 == null)
+        if (str1 == null || str2 == null)
             return false;
         if (str2.length() == 0)
             return true;
-        String sub = "";
+
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
-            sub = str1.substring(i, i + str2.length());
+            String sub = str1.substring(i, i + str2.length());
             if (sub.equals(str2))
                 return true;
         }
         return false;
     }
-
 }
