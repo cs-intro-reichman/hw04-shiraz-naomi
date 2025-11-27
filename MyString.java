@@ -35,8 +35,6 @@ public class MyString {
             return false;
         if (str2.length() == 0)
             return true;
-        if (str1.length() < str2.length())
-            return false;
 
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
