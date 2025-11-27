@@ -112,7 +112,7 @@ public class ArrCharOps {
             arr[i] = arr1[i];
         }
         for (int j = 0; j < arr2.length; j++) {
-            arr[j] = arr1[j];
+            arr[arr1.length + j] = arr2[j];
         }
         return arr;
     }
